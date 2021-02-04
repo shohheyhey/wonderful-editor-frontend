@@ -86,4 +86,8 @@ export default {
       }
     },
   },
+
+  server: {
+    port: 8000, // デフォルト: 3000
+  },
 }
