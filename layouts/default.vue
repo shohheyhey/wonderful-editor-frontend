@@ -74,10 +74,10 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.header{
-  .button{
-    margin:0 1rem;
+<style lang="scss" module>
+.header {
+  .button {
+    margin: 0.5rem;
   }
 }
 </style>
