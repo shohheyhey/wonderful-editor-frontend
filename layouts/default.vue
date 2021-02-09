@@ -16,7 +16,11 @@
         ログイン
       </v-btn>
     </v-app-bar>
-    <v-main> </v-main>
+    <v-main>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
