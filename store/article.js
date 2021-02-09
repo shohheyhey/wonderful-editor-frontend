@@ -14,21 +14,14 @@ export const mutations = {
 }
 
 export const actions = {
-  // async fetchArticles({ commit }) {
-  //   try {
-  //     const response = await this.$axios.get(
-  //       // 'api/v1/articles'
-  //       'https://jsondata.okiba.me/v1/json/7lV2J201227155106'
-  //     )
-  //     console.log(response)
-  //     const articles = response.data
-  //     commit('setArticles', articles)
-  //   } catch (err) {}
-  // },
-  fetchArticles({ commit }) {
-    const testResponse = ['response1', 'response2']
-    console.log(testResponse)
-    console.log('テスト')
-    commit('setArticles', testResponse)
+  async fetchArticles({ commit }) {
+    try {
+      const response = await this.$axios.get(
+        'http://localhost:3000/api/v1/articles'
+      )
+      console.log(response)
+      const articles = response.data
+      commit('setArticles', articles)
+    } catch (err) {}
   },
 }

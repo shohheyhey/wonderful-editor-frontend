@@ -8,15 +8,10 @@ export default {
       return this.$store.state.article.articles
     },
   },
-  created() {
-    const val = 'test'
-    debugger
-    console.log(val)
-  },
-  mounted() {
-    const val = 'test'
-    debugger
-    console.log(val)
+  async created() {
+    try {
+      await this.$store.dispatch('article/fetchArticles')
+    } catch (err) {}
   },
 }
 </script>
