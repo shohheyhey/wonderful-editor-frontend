@@ -1,13 +1,9 @@
 <template>
-  <div>テスト</div>
+  <div></div>
 </template>
+
 <script>
 export default {
-  computed: {
-    articles() {
-      return this.$store.state.article.articles
-    },
-  },
   created() {
     const val = 'test'
     debugger
