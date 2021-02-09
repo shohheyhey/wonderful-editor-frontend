@@ -1,34 +1,20 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
+    <v-app-bar
+      :class="$style.header"
+      :clipped-left="clipped"
       fixed
       app
+      color="#3185DF"
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :class="$style.header" :clipped-left="clipped" fixed app>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title :class="$style.title" v-text="title" />
       <v-spacer />
-      <v-btn :class="$style.button">ユーザー登録</v-btn>
-      <v-btn :class="$style.button">ログイン</v-btn>
+      <v-btn elevation="2" outlined plain raised :class="$style.button">
+        ユーザー登録
+      </v-btn>
+      <v-btn elevation="2" outlined plain raised :class="$style.button">
+        ログイン
+      </v-btn>
     </v-app-bar>
     <v-main> </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
@@ -76,8 +62,14 @@ export default {
 </script>
 <style lang="scss" module>
 .header {
+  .title {
+    font-weight: bold;
+    color: #fff;
+  }
   .button {
     margin: 0.5rem;
+    color: #fff;
+    font-weight: bold;
   }
 }
 </style>
