@@ -1,5 +1,9 @@
 <template>
-  <div>テスト</div>
+  <div>
+    <div v-for="article in articles" :key="article.id">
+      <div>{{ article.title }}</div>
+    </div>
+  </div>
 </template>
 <script>
 export default {

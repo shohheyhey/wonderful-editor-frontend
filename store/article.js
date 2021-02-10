@@ -1,7 +1,7 @@
 export const state = () => {
   return {
     articles: [],
-    tests: ['test1', 'test2'],
+    // tests: ['test1', 'test2'],
   }
 }
 
