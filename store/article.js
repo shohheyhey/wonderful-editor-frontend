@@ -17,7 +17,7 @@ export const actions = {
   async fetchArticles({ commit }) {
     try {
       const response = await this.$axios.get(
-        'http://localhost:3000/api/v1/articles'
+        'http://localhost:4000/api/v1/articles'
       )
       console.log(response)
       const articles = response.data
