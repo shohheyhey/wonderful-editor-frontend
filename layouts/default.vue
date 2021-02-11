@@ -16,7 +16,7 @@
         ログイン
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main :class="$style.main">
       <v-container>
         <nuxt />
       </v-container>
@@ -65,6 +65,9 @@ export default {
 }
 </script>
 <style lang="scss" module>
+.main {
+  background: #ecf6fe;
+}
 .header {
   .title {
     font-weight: bold;
