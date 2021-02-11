@@ -1,7 +1,15 @@
 <template>
   <div>
-    <div v-for="article in articles" :key="article.id">
-      <div>{{ article.title }}</div>
+    <div
+      v-for="article in articles"
+      :key="article.id"
+      :class="$style.article_card"
+    >
+      <div :class="article_card_content">
+        <div>{{ article.title }}</div>
+        <div>by {{ article.user.name }}</div>
+        <div :class="$style.border"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,3 +27,16 @@ export default {
   },
 }
 </script>
+<style lang="scss" , module>
+.article_card {
+  margin: 0 auto;
+  width: 50%;
+  height: 5rem;
+  background: #fff;
+  padding: 1rem;
+  .border {
+    margin-top: 0.5rem;
+    border-bottom: solid 1px grey;
+  }
+}
+</style>
