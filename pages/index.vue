@@ -7,13 +7,19 @@
     >
       <div :class="article_card_content">
         <div>{{ article.title }}</div>
-        <div>by {{ article.user.name }}</div>
+        <div :class="$style.user_name">by {{ article.user.name }}</div>
+        <vue-timeago
+          :class="$style.time_ago"
+          :datetime="article.updated_at"
+          :auto-update="60"
+        />
         <div :class="$style.border"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import '~/plugins/vue-timeago'
 export default {
   computed: {
     articles() {
@@ -34,6 +40,13 @@ export default {
   height: 5rem;
   background: #fff;
   padding: 1rem;
+  .user_name {
+    display: inline-block;
+  }
+  .time_ago {
+    float: right;
+    display: inline;
+  }
   .border {
     margin-top: 0.5rem;
     border-bottom: solid 1px grey;
