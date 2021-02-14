@@ -19,7 +19,6 @@
   </div>
 </template>
 <script>
-import '~/plugins/vue-timeago'
 export default {
   computed: {
     articles() {
