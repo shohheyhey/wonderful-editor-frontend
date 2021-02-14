@@ -44,6 +44,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // fontawesome
+    'nuxt-fontawesome',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,6 +63,23 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
+  // fontawesome: {
+  //   imports: [
+  //     {
+  //       set: '@fortawesome/free-solid-svg-icons',
+  //       icons: ['fas'],
+  //     },
+  //   ],
+  // },
+  fontawesome: {
+    compornent: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+    ],
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
