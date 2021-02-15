@@ -5,18 +5,73 @@
         <div class="head">
           <h2>ユーザー登録</h2>
         </div>
-        <input type="text" name="name" placeholder="アカウントネーム" /><br />
-        <input type="email" name="email" placeholder="メールアドレス" /><br />
-        <input type="password" name="password" placeholder="パスワード" /><br />
-        <button id="submit" :class="$style.sign_up_button" type="submit">
-          登録
-        </button>
+        <input
+          v-model="name"
+          type="text"
+          name="name"
+          placeholder="アカウントネーム"
+        /><br />
+        <input
+          v-model="email"
+          type="email"
+          name="email"
+          placeholder="メールアドレス"
+        /><br />
+        <input
+          v-model="password"
+          type="password"
+          name="password"
+          placeholder="パスワード"
+        /><br />
+        <input
+          v-model="password_confirmation"
+          type="password"
+          name="password_confirmation"
+          placeholder="パスワード確認用"
+        /><br />
+        <v-btn
+          color="#3185df"
+          class="white--text"
+          :class="$style.sign_up_button"
+          @click="registerUser"
+        >
+          新規登録
+        </v-btn>
       </div>
     </form>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      // password_confirmation: '',
+    }
+  },
+  methods: {
+    async registerUser() {
+      const params = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      }
+      try {
+        const response = await this.$axios.post(
+          'http://localhost:4000/api/v1/auth/',
+          params
+        )
+        console.log(response) // ここでレスポンスが返ってきてるか確認したい
+      } catch (err) {
+        console.log('エラーに入ったよ')
+        // debugger
+        console.log('エラーです')
+      }
+    },
+  },
+}
 </script>
 
 <style lang="scss" module>
@@ -64,12 +119,10 @@ input {
 .sign_up_button {
   margin-top: 15px;
   margin-bottom: 25px;
-  background-color: #3185df;
   padding: 12px 45px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid #2abca7;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   display: inline-block;
