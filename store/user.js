@@ -1,3 +1,4 @@
+import Vue from 'pages/sign_up.vue'
 export const state = () => {
   return {}
 }
@@ -7,14 +8,22 @@ export const state = () => {
 export const mutations = {}
 
 export const actions = {
-  async fetchArticles({ commit }) {
+  async fetchRegistration({ commit }) {
+    const params = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+    }
     try {
-      const response = await this.$axios.get(
-        'http://localhost:4000/api/v1/articles'
+      const response = await this.$axios.post(
+        'http://localhost:4000/api/v1/auth/',
+        params
       )
-      console.log(response)
-      const articles = response.data
-      commit('setArticles', articles)
-    } catch (err) {}
+      console.log(response) // ここでレスポンスが返ってきてるか確認したい
+    } catch (err) {
+      console.log('エラーに入ったよ')
+      // debugger
+      console.log('エラーです')
+    }
   },
 }
