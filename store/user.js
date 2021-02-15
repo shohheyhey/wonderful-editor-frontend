@@ -25,7 +25,7 @@ export const actions = {
         params
       )
       debugger
-      console.log(response) // ここでレスポンスが返ってきてるか確認したい
+      console.log(response)
     } catch (err) {
       console.log('エラーに入ったよ')
       // debugger
