@@ -42,7 +42,11 @@
   </div>
 </template>
 <script>
+import User from '~/store/user'
 export default {
+  components: {
+    User,
+  },
   data() {
     return {
       name: '',

@@ -1,24 +1,30 @@
-import Vue from 'pages/sign_up.vue'
 export const state = () => {
-  return {}
+  return {
+    user: [],
+  }
 }
 
 // export const getters = {}
 
-export const mutations = {}
+export const mutations = {
+  setRegistration(state, user) {
+    state.user = user
+  },
+}
 
 export const actions = {
   async fetchRegistration({ commit }) {
     const params = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
+      name: this.$sign_up.name,
+      email: this.$sigin_up.email,
+      password: this.$sign_up.password,
     }
     try {
       const response = await this.$axios.post(
         'http://localhost:4000/api/v1/auth/',
         params
       )
+      debugger
       console.log(response) // ここでレスポンスが返ってきてるか確認したい
     } catch (err) {
       console.log('エラーに入ったよ')
