@@ -42,11 +42,7 @@
   </div>
 </template>
 <script>
-import User from '~/store/user'
 export default {
-  components: {
-    User,
-  },
   data() {
     return {
       name: '',
@@ -57,7 +53,14 @@ export default {
   },
   methods: {
     async registerUser() {
-      await this.$store.dispatch('user/fetchRegistration')
+      const params = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      }
+      await this.$store.dispatch('user/fetchRegistration', {
+        params,
+      })
     },
   },
 }

@@ -1,35 +1,33 @@
 export const state = () => {
   return {
-    user: [],
+    headers: {},
   }
 }
 
 // export const getters = {}
 
 export const mutations = {
-  setRegistration(state, user) {
-    state.user = user
+  setRegistration(state, headers) {
+    state.headers = headers
   },
 }
 
 export const actions = {
-  async fetchRegistration({ commit }) {
-    const params = {
-      name: this.$sign_up.name,
-      email: this.$sigin_up.email,
-      password: this.$sign_up.password,
-    }
+  async fetchRegistration({ commit }, { params }) {
     try {
-      const response = await this.$axios.post(
-        'http://localhost:4000/api/v1/auth/',
-        params
-      )
+      const response = await this.$axios.post('/api/v1/auth/', params)
+      const headers = response.headers
       debugger
-      console.log(response)
+      const loginInfoHeaders = {
+        client: headers.client,
+        'access-token': headers['access-token'],
+        uid: headers.uid,
+        'token-type': headers['token-type'],
+      }
+      console.log(loginInfoHeaders.token)
+      commit('setRegistration', loginInfoHeaders)
     } catch (err) {
       console.log('エラーに入ったよ')
-      // debugger
-      console.log('エラーです')
     }
   },
 }
