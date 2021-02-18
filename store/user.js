@@ -24,10 +24,8 @@ export const actions = {
         uid: headers.uid,
         'token-type': headers['token-type'],
       }
-      console.log(loginInfoHeaders.token)
       commit('setRegistration', loginInfoHeaders)
     } catch (err) {
-      debugger
       console.log('エラーに入ったよ')
     }
   },
