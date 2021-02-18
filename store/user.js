@@ -17,6 +17,7 @@ export const actions = {
     try {
       const response = await this.$axios.post('/api/v1/auth/', params)
       const headers = response.headers
+      console.log(headers)
       debugger
       const loginInfoHeaders = {
         client: headers.client,
