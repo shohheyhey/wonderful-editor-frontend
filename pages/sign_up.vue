@@ -68,7 +68,6 @@ export default {
   border-radius: 6px;
   background-color: #fafafa;
 }
-
 h2 {
   text-align: center;
   padding: 18px 0 18px 0;
@@ -77,7 +76,6 @@ h2 {
 input {
   margin-bottom: 10px;
 }
-
 input:first-of-type {
   margin-top: 35px;
 }
@@ -118,7 +116,6 @@ button:hover,
 .button:hover {
   background: #19a08c;
 }
-
 /* media queries */
 @media (max-width: 700px) {
   label.error {
