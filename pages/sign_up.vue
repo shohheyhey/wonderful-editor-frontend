@@ -23,12 +23,6 @@
           name="password"
           placeholder="パスワード"
         /><br />
-        <input
-          v-model="password_confirmation"
-          type="password"
-          name="password_confirmation"
-          placeholder="パスワード確認用"
-        /><br />
         <v-btn
           color="#3185df"
           class="white--text"

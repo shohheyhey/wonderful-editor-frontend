@@ -27,6 +27,7 @@ export const actions = {
       console.log(loginInfoHeaders.token)
       commit('setRegistration', loginInfoHeaders)
     } catch (err) {
+      debugger
       console.log('エラーに入ったよ')
     }
   },
