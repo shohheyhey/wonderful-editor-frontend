@@ -46,6 +46,7 @@ export default {
         password: this.password,
       }
       await this.$store.dispatch('user/fetchSignIn', { params })
+      this.$router.push('/')
     },
   },
 }

@@ -53,6 +53,7 @@ export default {
         password: this.password,
       }
       await this.$store.dispatch('user/fetchRegistration', { params })
+      this.$router.push('/')
     },
   },
 }
