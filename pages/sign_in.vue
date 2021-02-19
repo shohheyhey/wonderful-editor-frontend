@@ -3,14 +3,8 @@
     <form id="contact">
       <div :class="$style.sign_up_container">
         <div class="head">
-          <h2>ユーザー登録</h2>
+          <h2>サインイン</h2>
         </div>
-        <input
-          v-model="name"
-          type="text"
-          name="name"
-          placeholder="アカウントネーム"
-        /><br />
         <input
           v-model="email"
           type="email"
@@ -48,11 +42,10 @@ export default {
   methods: {
     async registerUser() {
       const params = {
-        name: this.name,
         email: this.email,
         password: this.password,
       }
-      await this.$store.dispatch('user/fetchRegistration', { params })
+      await this.$store.dispatch('user/fetchSignIn', { params })
       this.$router.push('/')
     },
   },
